@@ -69,6 +69,7 @@ body {
   transform-style: preserve-3d;
   transition: 0.4s ease-in-out;
   background: white;
+  
 }
 .card .inside.picked, .card .inside.matched {
   transform: rotateY(180deg);
@@ -90,15 +91,23 @@ body {
   height: 100%;
   padding: 20px;
 }
-.card .front img, .card .back img {
+.card .back img {
   max-width: 100%;
   display: block;
   margin: 0 auto;
   max-height: 100%;
+  
+}
+.card .front img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+  transform: rotate(90deg);
 }
 .card .front {
   transform: rotateY(-180deg);
-}
+  }
 @media (max-width: 800px) {
   .card .front {
     padding: 5px;

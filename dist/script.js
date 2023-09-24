@@ -121,11 +121,24 @@
 
   var cards2 = [];
 
-  for (var i = 1; i <= 50; i++) {
+  for (var i = 1; i <= 48; i += 4) {
+    console.log(`${i+3}`)
     cards2.push(
       {
         img: `../cards/${i}.png`,
         id: i,
+      },
+      {
+        img: `../cards/${i + 1}.png`,
+        id: i,
+      },
+      {
+        img: `../cards/${i + 2}.png`,
+        id: i + 2,
+      },
+      {
+        img: `../cards/${i + 3}.png`,
+        id: i + 2,
       }
     );
   }
