@@ -1,4 +1,3 @@
-
 (function () {
   var Memory = {
     init: function (cards) {
@@ -6,13 +5,13 @@
       this.$modal = $(".modal");
       this.$overlay = $(".modal-overlay");
       this.$restartButton = $("button.restart");
-      this.cardsArray = $.merge(cards, cards);
+      this.cardsArray = cards;
       this.shuffleCards(this.cardsArray);
       this.setup();
     },
 
     shuffleCards: function (cardsArray) {
-      this.$cards = $(this.shuffle(this.cardsArray));
+      this.$cards = $(this.shuffle(cardsArray));
     },
 
     setup: function () {
@@ -28,7 +27,7 @@
       this.$memoryCards.on("click", this.cardClicked);
       this.$restartButton.on("click", $.proxy(this.reset, this));
     },
-    // kinda messy but hey
+
     cardClicked: function () {
       var _ = Memory;
       var $card = $(this);
@@ -39,10 +38,10 @@
       ) {
         $card.find(".inside").addClass("picked");
         if (!_.guess) {
-          _.guess = $(this).attr("data-id");
+          _.guess = $card.attr("data-id");
         } else if (
-          _.guess == $(this).attr("data-id") &&
-          !$(this).hasClass("picked")
+          _.guess == $card.attr("data-id") &&
+          !$card.hasClass("picked")
         ) {
           $(".picked").addClass("matched");
           _.guess = null;
@@ -85,18 +84,13 @@
       this.$game.show("slow");
     },
 
-    
     shuffle: function (array) {
       var counter = array.length,
         temp,
         index;
-      // While there are elements in the array
       while (counter > 0) {
-        // Pick a random index
         index = Math.floor(Math.random() * counter);
-        // Decrease counter by 1
         counter--;
-        // And swap the last element with it
         temp = array[counter];
         array[counter] = array[index];
         array[index] = temp;
@@ -106,108 +100,35 @@
 
     buildHTML: function () {
       var frag = "";
-      this.$cards.each(function (k, v) {
+      this.$cards.each(function (index, card) {
         frag +=
           '<div class="card" data-id="' +
-          v.id +
+          card.id +
           '"><div class="inside">\
-				<div class="front"><img src="' +
-          v.img +
+          <div class="front"><img src="' +
+          card.img +
           '"\
-				alt="' +
-          v.name +
+          alt="' +
+          card.name +
           '" /></div>\
-				<div class="back"><img src="./b.png"\
-				alt="Codepen" /></div></div>\
-				</div>';
+          <div class="back"><img src="./b.png"\
+          alt="Codepen" /></div></div>\
+          </div>';
       });
       return frag;
     },
   };
 
-  var cards = [
-    {
-      name: "php",
-      img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/php-logo_1.png",
-      id: 1,
-    },
-    {
-      name: "css3",
-      img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/css3-logo.png",
-      id: 2,
-    },
-    {
-      name: "html5",
-      img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/html5-logo.png",
-      id: 3,
-    },
-    {
-      name: "jquery",
-      img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/jquery-logo.png",
-      id: 4,
-    },
-    {
-      name: "javascript",
-      img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/js-logo.png",
-      id: 5,
-    },
-    {
-      name: "node",
-      img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/nodejs-logo.png",
-      id: 6,
-    },
-    {
-      name: "photoshop",
-      img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/photoshop-logo.png",
-      id: 7,
-    },
-    {
-      name: "python",
-      img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/python-logo.png",
-      id: 8,
-    },
-    {
-      name: "rails",
-      img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/rails-logo.png",
-      id: 9,
-    },
-    {
-      name: "sass",
-      img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/sass-logo.png",
-      id: 10,
-    },
-    {
-      name: "sublime",
-      img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/sublime-logo.png",
-      id: 11,
-    },
-    {
-      name: "wordpress",
-      img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/wordpress-logo.png",
-      id: 12,
-    },
-    {
-      type: "image",
-      img: "../cards/1.png",
-      id: 1,
-    },
-  ];
-
   var cards2 = [];
 
-  for (var i = 1; i <= 52; i += 2) {
+  for (var i = 1; i <= 50; i++) {
     cards2.push(
       {
         img: `../cards/${i}.png`,
-        id: i,
-      },
-      {
-        img: `../cards/${i + 1}.png`,
         id: i,
       }
     );
   }
 
-  console.log(cards2)
-  Memory.init(cards);
+  Memory.init(cards2);
 })();
