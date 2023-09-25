@@ -7,7 +7,7 @@ html, body {
 }
 
 body {
-  background: black;
+  
   min-height: 100%;
   font-family: "Arial", sans-serif;
 
@@ -17,6 +17,9 @@ body {
   position: relative;
   height: 100%;
   min-height: 500px;
+  background-color: #222;
+  margin: 0 !important;
+  padding: 0 !important;
   
   
   
@@ -120,13 +123,12 @@ body {
   max-height: 100%;
 }
 .card .front img{
-  transform: rotate(90deg); /* Rotate the images */
-  max-width: 100%;
+ 
+  
   max-height: 100%;
-  width: auto;
-  height: auto;
-  position: relative;
-  border: #222 1px solid;
+  max-height: 100%;
+
+  
 }
 .card .front {
   transform: rotateY(-180deg);
