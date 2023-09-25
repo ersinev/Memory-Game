@@ -5,7 +5,7 @@
       this.$modal = $(".modal");
       this.$overlay = $(".modal-overlay");
       this.$restartButton = $("button.restart");
-      this.cardsArray = cards;
+      this.cardsArray = cards2;
       this.shuffleCards(this.cardsArray);
       this.setup();
     },
@@ -102,7 +102,7 @@
       var frag = "";
       this.$cards.each(function (index, card) {
         frag +=
-          '<div class="card" data-id="' +
+          '<div class="card " data-id="' +
           card.id +
           '"><div class="inside">\
           <div class="front"><img src="' +
@@ -111,7 +111,7 @@
           alt="' +
           card.name +
           '" /></div>\
-          <div class="back"><img style="weight:100px; height:100px"src="./b.png"\
+          <div class="back"><img src="./b.png"\
           alt="Codepen" /></div></div>\
           </div>';
       });
@@ -122,7 +122,7 @@
   var cards2 = [];
 
   for (var i = 1; i <= 48; i += 4) {
-    console.log(`${i+3}`)
+    
     cards2.push(
       {
         img: `../cards/${i}.png`,

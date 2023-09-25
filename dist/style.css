@@ -1,20 +1,16 @@
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
-html,
-body {
+html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 body {
   background: black;
   min-height: 100%;
   font-family: "Arial", sans-serif;
+
 }
 
 .wrap {
@@ -22,8 +18,8 @@ body {
   height: 100%;
   min-height: 500px;
   padding-bottom: 20px;
-  align-items: center;
-  text-align: center;
+  
+  
 }
 
 .game {
@@ -32,9 +28,10 @@ body {
   min-height: 100%;
   height: 100%;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  text-align: center;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  justify-content: space-between; /* Adjust alignment as needed */
+  
+
 }
 
 @-webkit-keyframes matchAnim {
@@ -55,13 +52,22 @@ body {
   }
 }
 .card {
-  width: 200px;
-  height: 150px;
-  padding: 5px;
-  margin: 0.5px;
+  width: 12.5%; /* Set to 12.5% to fit 8 cards in a row */
+  height: 16.666%; /* Set to 16.666% to have 6 rows */
+ 
+  text-align: center;
+  display: block;
+  perspective: 500px;
+  position: relative;
   cursor: pointer;
   z-index: 50;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  
+  overflow: hidden;
+  
+  display: inline-flex;
+  flex-basis: 12.5%; /* Adjust as needed */
+  flex-grow: 0;
 }
 @media (max-width: 800px) {
   .card {
@@ -75,45 +81,52 @@ body {
   display: block;
   transform-style: preserve-3d;
   transition: 0.4s ease-in-out;
-  background: rgb(255, 255, 255);
+  background: white;
+  
+  
 }
-.card .inside.picked,
-.card .inside.matched {
+
+
+.card .inside.picked, .card .inside.matched {
   transform: rotateY(180deg);
 }
 .card .inside.matched {
+  
+  
+  
   -webkit-animation: 1s matchAnim ease-in-out;
-  animation: 1s matchAnim ease-in-out;
+          animation: 1s matchAnim ease-in-out;
+          background-color: #1e9603;
+          
   -webkit-animation-delay: 0.4s;
-  animation-delay: 0.4s;
+          animation-delay: 0.4s;
+          
 }
-.card .front,
-.card .back {
+.card .front, .card .back {
   border: 1px solid black;
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+          backface-visibility: hidden;
   position: absolute;
-
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 15px;
 }
 .card .back img {
   max-width: 100%;
-  display: flex;
+  display: block;
   margin: 0 auto;
   max-height: 100%;
-  /* Add object-fit property */
-  object-fit: contain;
 }
-.card .front img {
-  /* Adjust the dimensions as needed to fit within the card */
-  width: 100px;
-  height: 100px;
-
-  /* Maintain aspect ratio, cover, and rotate */
-
-  transform: rotate(90deg) scale(1.5); /* Rotate and zoom in */
+.card .front img{
+  transform: rotate(90deg); /* Rotate the images */
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  position: relative;
+  border: #222 1px solid;
 }
 .card .front {
   transform: rotateY(-180deg);
@@ -230,13 +243,13 @@ body {
   background: #4c70ba;
 }
 .modal .social li a.google {
-  background: #d34836;
+  background: #D34836;
 }
 .modal .social li a.google:hover {
   background: #dc6e60;
 }
 .modal .social li a.twitter {
-  background: #4099ff;
+  background: #4099FF;
 }
 .modal .social li a.twitter:hover {
   background: #73b4ff;
