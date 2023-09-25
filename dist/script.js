@@ -111,7 +111,7 @@
           alt="' +
           card.name +
           '" /></div>\
-          <div class="back"><img src="./b.png"\
+          <div class="back"><img style="weight:100px; height:100px"src="./b.png"\
           alt="Codepen" /></div></div>\
           </div>';
       });
