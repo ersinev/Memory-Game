@@ -4,25 +4,20 @@
 
 html, body {
   height: 100%;
+  
+ 
 }
 
 body {
-  
-  min-height: 100%;
   font-family: "Arial", sans-serif;
-
+  
 }
 
 .wrap {
   position: relative;
   height: 100%;
   min-height: 500px;
-  background-color: #222;
-  margin: 0 !important;
-  padding: 0 !important;
-  
-  
-  
+  background-color: #ffffff;
 }
 
 .game {
@@ -30,11 +25,12 @@ body {
   perspective: 500px;
   min-height: 100%;
   height: 100%;
-  display: flex;
-  flex-wrap: wrap; /* Allow cards to wrap to the next line */
-  justify-content: space-between; /* Adjust alignment as needed */
-  
-
+  display: grid;
+  grid-template-columns: repeat(12, 8%); /* Define 8 columns with 12% width each */
+  grid-template-rows: repeat(4, 25%); /* Define 6 rows with 12% height each */
+  grid-gap: 0; /* Remove gaps between cards */
+  align-content: stretch;
+  justify-content: space-between;
 }
 
 @-webkit-keyframes matchAnim {
@@ -54,10 +50,10 @@ body {
     background: white;
   }
 }
+
 .card {
-  width: 12.5%; /* Set to 12.5% to fit 8 cards in a row */
-  height: 16.666%; /* Set to 16.666% to have 6 rows */
- 
+  width: 100%;
+  height: 100%;
   text-align: center;
   display: block;
   perspective: 500px;
@@ -65,83 +61,102 @@ body {
   cursor: pointer;
   z-index: 50;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  
   overflow: hidden;
+ 
   
-  display: inline-flex;
-  flex-basis: 12.5%; /* Adjust as needed */
-  flex-grow: 0;
+  
 }
+
 @media (max-width: 800px) {
   .card {
     width: 25%;
     height: 16.666%;
   }
 }
+
 .card .inside {
   width: 100%;
   height: 100%;
+  object-fit: contain;
   display: block;
   transform-style: preserve-3d;
   transition: 0.4s ease-in-out;
   background: white;
-  
-  
 }
-
 
 .card .inside.picked, .card .inside.matched {
   transform: rotateY(180deg);
 }
+
 .card .inside.matched {
-  
-  
-  
   -webkit-animation: 1s matchAnim ease-in-out;
-          animation: 1s matchAnim ease-in-out;
-          background-color: #1e9603;
-          
+  animation: 1s matchAnim ease-in-out;
+  background-color: #1e9603;
   -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s;
-          
+  animation-delay: 0.4s;
 }
-.card .front, .card .back {
+
+.card .front {
   border: 1px solid black;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   padding: 15px;
-}
-.card .back img {
-  max-width: 100%;
-  display: block;
-  margin: 0 auto;
-  max-height: 100%;
-}
-.card .front img{
- 
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
-  max-height: 100%;
-  max-height: 100%;
-  transform: rotate(90deg);
+}
 
+.card .back {
+  border: 1px solid black;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+}
+
+.card .back img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
   
 }
+
+.card .front img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  transform: rotate(90deg) scale(1.5);
+}
+
+
 .card .front {
   transform: rotateY(-180deg);
 }
+
 @media (max-width: 800px) {
   .card .front {
     padding: 5px;
   }
 }
+
 .card .back {
   transform: rotateX(0);
 }
+
 @media (max-width: 800px) {
   .card .back {
     padding: 10px;
@@ -172,6 +187,7 @@ body {
   transform: translateY(-50%);
   padding: 30px 10px;
 }
+
 .modal .winner {
   font-size: 80px;
   text-align: center;
@@ -179,11 +195,13 @@ body {
   color: #4d4d4d;
   text-shadow: 0px 3px 0 black;
 }
+
 @media (max-width: 480px) {
   .modal .winner {
     font-size: 60px;
   }
 }
+
 .modal .restart {
   font-family: "Anton", sans-serif;
   margin: 30px auto;
@@ -199,38 +217,47 @@ body {
   text-shadow: 0px 1px 0 black;
   cursor: pointer;
 }
+
 .modal .restart:hover {
   background: linear-gradient(#222, black);
 }
+
 .modal .message {
   text-align: center;
 }
+
 .modal .message a {
   text-decoration: none;
   color: #28afe6;
   font-weight: bold;
 }
+
 .modal .message a:hover {
   color: #56c0eb;
   border-bottom: 1px dotted #56c0eb;
 }
+
 .modal .share-text {
   text-align: center;
   margin: 10px auto;
 }
+
 .modal .social {
   margin: 20px auto;
   text-align: center;
 }
+
 .modal .social li {
   display: inline-block;
   height: 50px;
   width: 50px;
   margin-right: 10px;
 }
+
 .modal .social li:last-child {
   margin-right: 0;
 }
+
 .modal .social li a {
   display: block;
   line-height: 50px;
@@ -239,21 +266,27 @@ body {
   text-decoration: none;
   border-radius: 5px;
 }
+
 .modal .social li a.facebook {
   background: #3b5998;
 }
+
 .modal .social li a.facebook:hover {
   background: #4c70ba;
 }
+
 .modal .social li a.google {
   background: #D34836;
 }
+
 .modal .social li a.google:hover {
   background: #dc6e60;
 }
+
 .modal .social li a.twitter {
   background: #4099FF;
 }
+
 .modal .social li a.twitter:hover {
   background: #73b4ff;
 }
@@ -265,12 +298,14 @@ footer {
   width: 100%;
   z-index: 0;
 }
+
 footer .disclaimer {
   line-height: 20px;
   font-size: 12px;
   color: #727272;
   text-align: center;
 }
+
 @media (max-width: 767px) {
   footer .disclaimer {
     font-size: 8px;

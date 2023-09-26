@@ -5,7 +5,7 @@
       this.$modal = $(".modal");
       this.$overlay = $(".modal-overlay");
       this.$restartButton = $("button.restart");
-      this.cardsArray = cards2;
+      this.cardsArray = cards;
       this.shuffleCards(this.cardsArray);
       this.setup();
     },
@@ -58,8 +58,9 @@
         }
       }
     },
-
+    
     win: function () {
+      
       this.paused = true;
       setTimeout(function () {
         Memory.showModal();
@@ -68,20 +69,21 @@
     },
 
     showModal: function () {
-      this.$overlay.show();
-      this.$modal.fadeIn("slow");
+      this.$overlay.fadeIn("slow"); // Use fadeIn to show the overlay
+      this.$modal.fadeIn("slow");   // Use fadeIn to show the modal
     },
-
+    
     hideModal: function () {
-      this.$overlay.hide();
-      this.$modal.hide();
+      this.$overlay.fadeOut("slow"); // Use fadeOut to hide the overlay
+      this.$modal.fadeOut("slow");   // Use fadeOut to hide the modal
     },
-
     reset: function () {
       this.hideModal();
       this.shuffleCards(this.cardsArray);
       this.setup();
       this.$game.show("slow");
+      this.resetTimer(); // Reset the timer when the game is reset
+      this.startTimer(); // Start the timer when the game begins
     },
 
     shuffle: function (array) {
@@ -117,6 +119,13 @@
       });
       return frag;
     },
+
+    
+
+    
+
+    
+    
   };
 
   var cards2 = [];
@@ -142,6 +151,25 @@
       }
     );
   }
-
   Memory.init(cards2);
+  
+  // Add a testing function to simulate a win scenario
+// function testWinScenario() {
+//   // Mark all cards as "matched"
+//   Memory.$memoryCards.find('.inside').addClass('matched');
+//   // Trigger the win function
+//   Memory.win();
+// }
+
+// // Call the testing function when needed (for testing purposes)
+// // For example, you can call it after a certain timeout, like this:
+// setTimeout(testWinScenario, 1000); // Simulate a win after 1 second
+
+
+
+
+
+
+
+  
 })();
