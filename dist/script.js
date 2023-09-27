@@ -152,18 +152,34 @@
     );
   }
   Memory.init(cards2);
+  const inputBtn = document.querySelector("#inputBtn");
+  const inputPart = document.querySelector(".inputPart");
+  const time = document.querySelector(".time")
   
-  // Add a testing function to simulate a win scenario
-// function testWinScenario() {
-//   // Mark all cards as "matched"
-//   Memory.$memoryCards.find('.inside').addClass('matched');
-//   // Trigger the win function
-//   Memory.win();
-// }
+  inputBtn.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent the default form submission
+    console.log("button clicked");
+    console.log("button clicked")
+    inputPart.style.display= "none"
+    main.style.display= "block"
+     
+  });
+  
+  
+  
+   
+  
+    // Add a testing function to simulate a win scenario
+  // function testWinScenario() {
+  //   // Mark all cards as "matched"
+  //   Memory.$memoryCards.find('.inside').addClass('matched');
+  //   // Trigger the win function
+  //   Memory.win();
+  // }
 
-// // Call the testing function when needed (for testing purposes)
-// // For example, you can call it after a certain timeout, like this:
-// setTimeout(testWinScenario, 1000); // Simulate a win after 1 second
+  // // Call the testing function when needed (for testing purposes)
+  // // For example, you can call it after a certain timeout, like this:
+  // setTimeout(testWinScenario, 1000); // Simulate a win after 1 second
 
 
 
