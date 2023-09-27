@@ -31,8 +31,8 @@ body {
 .game {
   transform-style: preserve-3d;
   perspective: 500px;
-  min-height: 95%;
-  height: 95%;
+  min-height: 94%;
+  height: 94%;
   display: grid;
   grid-template-columns: repeat(12, 8%); /* Define 8 columns with 12% width each */
   grid-template-rows: repeat(4, 25%); /* Define 6 rows with 12% height each */

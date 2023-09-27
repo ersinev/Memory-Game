@@ -10,10 +10,16 @@ body {
   left: 0;
   right: 0;
   margin-top: 0;
-  
+  height: 3%;
   
   
 }
+.count-title {
+  margin-bottom: 2px !important;
+  
+  
+}
+
 
 a {
   text-decoration: none;
@@ -25,8 +31,8 @@ a {
 .countdown {
   width: 720px;
   margin: 0 auto;
- 
-  height: 300px;
+  margin-bottom: 0;
+  height: 4%;
   
 }
 .countdown .bloc-time {
@@ -40,15 +46,15 @@ a {
 }
 .countdown .count-title {
   display: block;
-  margin-bottom: 15px;
-  font: normal 0.74em "Lato";
+ 
+  font: normal 0.6em "Lato";
   color: #1a1a1a;
   text-transform: uppercase;
 }
 .countdown .figure {
   position: relative;
   float: left;
-  height: 110px;
+  height: 20px;
   width: 100px;
   margin-right: 10px;
   background-color: #fff;
@@ -65,7 +71,7 @@ a {
   left: 0;
   right: 0;
   margin: auto;
-  font: normal 5.94em/107px "Lato";
+  font: normal 15px "Lato";
   font-weight: 700;
   color: #de4848;
 }
