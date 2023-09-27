@@ -88,6 +88,7 @@ a {
   font: normal 15px "Lato";
   font-weight: 700;
   color: #de4848;
+  
 }
 .countdown .figure .top:after, .countdown .figure .bottom-back:after {
   content: "";
