@@ -15,8 +15,8 @@ body {
 .time{
   align-items: center;
   text-align: center;
-  min-height: 5%;
-  height: 5%;
+  
+  
 }
 .wrap {
   position: relative;
@@ -25,7 +25,9 @@ body {
   background-color: #ffffff;
   filter: blur(8px);
 }
-
+.countdown{
+  height: 5%;
+}
 .game {
   transform-style: preserve-3d;
   perspective: 500px;

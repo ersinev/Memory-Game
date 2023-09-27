@@ -167,6 +167,11 @@
     main.style.display= "block"
     wrap.style.display = "block"; 
     wrap.style.filter = "blur(0px)"; 
+    time.style.display = "block"; 
+   
+    window.setInterval(function () {
+  }, 1000);
+
      
   });
   
