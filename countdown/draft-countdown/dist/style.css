@@ -1,5 +1,6 @@
 body {
   background-color: #f2f1ed;
+  background-color: #32252ed1 !important;
   
 }
 
@@ -11,12 +12,13 @@ body {
   right: 0;
   margin-top: 0;
   height: 3%;
-  
+   
   
 }
 .count-title {
   margin-bottom: 2px !important;
-  
+ 
+
   
 }
 
@@ -34,6 +36,17 @@ a {
   margin-bottom: 0;
   height: 4%;
   
+  
+}
+
+.figure {
+  position: relative;
+  float: left;
+  height: 110px;
+  width: 100px;
+  margin-right: 10px;
+  background-color: #fff;
+  border-radius: 8px; 
 }
 .countdown .bloc-time {
   float: left;
@@ -46,9 +59,10 @@ a {
 }
 .countdown .count-title {
   display: block;
- 
-  font: normal 0.6em "Lato";
-  color: #1a1a1a;
+  
+  font-weight: 800 ;
+  font: normal 0.75em "Lato";
+  color: #ffffff;
   text-transform: uppercase;
 }
 .countdown .figure {
@@ -57,7 +71,7 @@ a {
   height: 20px;
   width: 100px;
   margin-right: 10px;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 8px;
   -moz-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), inset 2px 4px 0 0 rgba(255, 255, 255, 0.08);
   -webkit-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), inset 2px 4px 0 0 rgba(255, 255, 255, 0.08);
