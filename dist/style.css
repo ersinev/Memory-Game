@@ -12,19 +12,25 @@ body {
   font-family: "Arial", sans-serif;
   
 }
-
+.time{
+  align-items: center;
+  text-align: center;
+  min-height: 5%;
+  height: 5%;
+}
 .wrap {
   position: relative;
   height: 100%;
   min-height: 500px;
   background-color: #ffffff;
+  filter: blur(8px);
 }
 
 .game {
   transform-style: preserve-3d;
   perspective: 500px;
-  min-height: 100%;
-  height: 100%;
+  min-height: 95%;
+  height: 95%;
   display: grid;
   grid-template-columns: repeat(12, 8%); /* Define 8 columns with 12% width each */
   grid-template-rows: repeat(4, 25%); /* Define 6 rows with 12% height each */

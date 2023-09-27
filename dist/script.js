@@ -155,6 +155,9 @@
   const inputBtn = document.querySelector("#inputBtn");
   const inputPart = document.querySelector(".inputPart");
   const time = document.querySelector(".time")
+  const wrap = document.querySelector(".wrap");
+  const main = document.querySelector(".main");
+
   
   inputBtn.addEventListener('click', (event) => {
     event.preventDefault(); // Prevent the default form submission
@@ -162,6 +165,8 @@
     console.log("button clicked")
     inputPart.style.display= "none"
     main.style.display= "block"
+    wrap.style.display = "block"; 
+    wrap.style.filter = "blur(0px)"; 
      
   });
   
