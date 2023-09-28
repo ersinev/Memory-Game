@@ -58,9 +58,8 @@
         }
       }
     },
-    
+
     win: function () {
-      
       this.paused = true;
       setTimeout(function () {
         Memory.showModal();
@@ -70,12 +69,12 @@
 
     showModal: function () {
       this.$overlay.fadeIn("slow"); // Use fadeIn to show the overlay
-      this.$modal.fadeIn("slow");   // Use fadeIn to show the modal
+      this.$modal.fadeIn("slow"); // Use fadeIn to show the modal
     },
-    
+
     hideModal: function () {
       this.$overlay.fadeOut("slow"); // Use fadeOut to hide the overlay
-      this.$modal.fadeOut("slow");   // Use fadeOut to hide the modal
+      this.$modal.fadeOut("slow"); // Use fadeOut to hide the modal
     },
     reset: function () {
       this.hideModal();
@@ -119,19 +118,11 @@
       });
       return frag;
     },
-
-    
-
-    
-
-    
-    
   };
 
   var cards2 = [];
 
   for (var i = 1; i <= 48; i += 4) {
-    
     cards2.push(
       {
         img: `../cards/${i}.png`,
@@ -154,32 +145,24 @@
   Memory.init(cards2);
   const inputBtn = document.querySelector("#inputBtn");
   const inputPart = document.querySelector(".inputPart");
-  const time = document.querySelector(".time")
+  const time = document.querySelector(".time");
   const wrap = document.querySelector(".wrap");
   const main = document.querySelector(".main");
 
-  
-  inputBtn.addEventListener('click', (event) => {
+  inputBtn.addEventListener("click", (event) => {
     event.preventDefault(); // Prevent the default form submission
     console.log("button clicked");
-    console.log("button clicked")
-    inputPart.style.display= "none"
-    main.style.display= "block"
-    wrap.style.display = "block"; 
-    wrap.style.filter = "blur(0px)"; 
-    time.style.display = "block"; 
-   
-    window.setInterval(function () {
-  }, 1000);
+    console.log("button clicked");
+    inputPart.style.display = "none";
+    main.style.display = "block";
+    wrap.style.display = "block";
+    wrap.style.filter = "blur(0px)";
+    time.style.display = "block";
+    setTimer();
 
-     
+    window.setInterval(function () {}, 1000);
   });
-  
-  
-  
-   
-  
-    
+
   // function testWinScenario() {
   //   // Mark all cards as "matched"
   //   Memory.$memoryCards.find('.inside').addClass('matched');
@@ -191,11 +174,35 @@
   // // For example, you can call it after a certain timeout, like this:
   // setTimeout(testWinScenario, 1000); // Simulate a win after 1 second
 
+  const setTimer = () => {
+    var initialCountDownMinutes = 20;
+    var countDownDate = new Date();
+    countDownDate.setMinutes(
+      countDownDate.getMinutes() + initialCountDownMinutes
+    );
 
+    // Update the count down every 1 second
 
+    var x = setInterval(function () {
+      // Get today's date and time
+      var now = new Date().getTime();
 
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
 
+      // Time calculations for minutes and seconds
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+      // Output the result in an element with id "time"
+      document.getElementById("time").innerHTML =
+        minutes + "m " + seconds + "s";
 
-  
+      // If the count down is over, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("time").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  };
 })();
