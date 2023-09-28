@@ -157,7 +157,7 @@
     main.style.display = "block";
     wrap.style.display = "block";
     wrap.style.filter = "blur(0px)";
-    time.style.display = "block";
+    // time.style.display = "block";
     setTimer();
 
     window.setInterval(function () {}, 1000);
@@ -172,7 +172,7 @@
 
   // // Call the testing function when needed (for testing purposes)
   // // For example, you can call it after a certain timeout, like this:
-  // setTimeout(testWinScenario, 1000); // Simulate a win after 1 second
+  // setTimeout(testWinScenario, 6000); // Simulate a win after 1 second
 
   const setTimer = () => {
     var initialCountDownMinutes = 20;
