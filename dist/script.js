@@ -113,7 +113,7 @@
           alt="' +
           card.name +
           '" /></div>\
-          <div class="back"><img src="./b.png"\
+          <div class="back"><img src="../cards/b.png"\
           alt="Codepen" /></div></div>\
           </div>';
       });
@@ -179,7 +179,7 @@
   
    
   
-    // Add a testing function to simulate a win scenario
+    
   // function testWinScenario() {
   //   // Mark all cards as "matched"
   //   Memory.$memoryCards.find('.inside').addClass('matched');
